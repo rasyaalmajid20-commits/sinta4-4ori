@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cat & Mouse · Katalog Jurnal SINTA</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#8fd3f4;--bg2:#fff3c4;--card:#fffdf2;--ink:#1b1b2f;--cat:#5b7fc7;--cheese:#ffc928;--red:#e63946;--green:#2a9d8f}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d2b53;--bg2:#2b2d42;--card:#2f3252;--ink:#fff6d6}}
+:root[data-theme="dark"]{--bg:#1d2b53;--bg2:#2b2d42;--card:#2f3252;--ink:#fff6d6}
+*{box-sizing:border-box}
+body{margin:0;font-family:Fredoka,"Trebuchet MS",sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--bg),var(--bg2));min-height:100%;overflow-x:hidden}
+.bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.bg span{position:absolute;font-size:2rem;animation:fl linear infinite;opacity:.55}
+@keyframes fl{from{transform:translateY(110vh) rotate(0)}to{transform:translateY(-15vh) rotate(360deg)}}
+.run{position:fixed;bottom:6px;left:-120px;z-index:1;pointer-events:none;display:flex;align-items:flex-end;gap:70px;animation:run 14s linear infinite}
+@keyframes run{to{transform:translateX(calc(100vw + 360px))}}
+.run svg{width:70px;animation:hop .3s infinite alternate}.run svg.c{width:110px}
+@keyframes hop{to{transform:translateY(-8px)}}
+header,main,footer{position:relative;z-index:2;max-width:1100px;margin:auto;padding:0 16px}
+.hero{text-align:center;padding:28px 0 10px}
+h1{font-family:Bangers,Impact,sans-serif;font-size:clamp(2.4rem,8vw,5rem);letter-spacing:3px;margin:0;color:var(--cheese);-webkit-text-stroke:3px #1b1b2f;text-shadow:5px 5px 0 #1b1b2f;transform:rotate(-2deg)}
+.sub{font-weight:600;margin:10px 0}
+.badge{display:inline-block;background:var(--card);border:3px solid #1b1b2f;border-radius:18px;padding:12px 18px;box-shadow:5px 5px 0 #1b1b2f;margin:8px;font-size:.95rem;text-align:left;max-width:560px;color:var(--ink)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0}
+.btn{font-family:Bangers,Impact,sans-serif;letter-spacing:1px;font-size:1.1rem;background:var(--cheese);color:#1b1b2f;border:3px solid #1b1b2f;border-radius:14px;padding:6px 14px;cursor:pointer;box-shadow:3px 3px 0 #1b1b2f;transition:.15s}
+.btn:hover{transform:translate(-2px,-2px) rotate(-2deg)}.btn.on{background:var(--red);color:#fff}
+input{font:inherit;padding:9px 14px;border:3px solid #1b1b2f;border-radius:14px;width:min(380px,100%);background:var(--card);color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;padding:10px 0 130px}
+.card{background:var(--card);border:3px solid #1b1b2f;border-radius:20px;padding:16px;box-shadow:6px 6px 0 #1b1b2f;cursor:pointer;transition:.2s;position:relative;animation:pop .5s backwards}
+@keyframes pop{from{transform:scale(.6) rotate(-6deg);opacity:0}}
+.card:hover{transform:translate(-3px,-5px) rotate(-1.5deg);box-shadow:10px 10px 0 #1b1b2f}
+.card h3{margin:0 0 6px;font-size:1.05rem;padding-right:60px}
+.card p{margin:4px 0;font-size:.88rem}
+.s{position:absolute;top:-14px;right:-8px;font-family:Bangers,Impact,sans-serif;font-size:1.2rem;color:#fff;border:3px solid #1b1b2f;border-radius:50%;width:52px;height:52px;display:grid;place-items:center;transform:rotate(12deg);text-align:center;line-height:1}
+.s3{background:var(--green)}.s5{background:#f4a261;color:#1b1b2f}.s6{background:var(--red)}.s0{background:#888}
+.tag{display:inline-block;background:var(--cheese);color:#1b1b2f;border:2px solid #1b1b2f;border-radius:10px;padding:1px 8px;font-size:.75rem;margin:2px 2px 0 0}
+.ov{position:fixed;inset:0;background:rgba(10,10,30,.7);z-index:50;display:none;align-items:center;justify-content:center;padding:14px}
+.ov.show{display:flex}
+.det{background:var(--card);border:4px solid #1b1b2f;border-radius:24px;max-width:640px;width:100%;max-height:88%;overflow:auto;padding:22px;box-shadow:8px 8px 0 #000;animation:zoom .35s cubic-bezier(.3,1.6,.5,1);color:var(--ink)}
+@keyframes zoom{from{transform:scale(.2) rotate(-12deg)}}
+.det h2{font-family:Bangers,Impact,sans-serif;letter-spacing:2px;font-size:2rem;margin:0 0 8px}
+.det table{width:100%;border-collapse:collapse;margin:10px 0}
+.det td{border-bottom:2px dashed #888;padding:6px 4px;vertical-align:top;font-size:.92rem}.det td:first-child{font-weight:600;width:34%}
+.det a{color:var(--red);font-weight:600}
+.scare{background:#000;color:#fff;text-align:center;font-family:Bangers,Impact,sans-serif;z-index:99;display:none;position:fixed;inset:0;align-items:center;justify-content:center;flex-direction:column;animation:shake .1s infinite;padding:20px}
+.scare.show{display:flex}.scare svg{width:min(70vw,340px);animation:big .6s forwards}.scare div{font-size:clamp(2rem,9vw,4.5rem);color:var(--red);letter-spacing:3px}
+@keyframes big{from{transform:scale(.1)}to{transform:scale(1.2)}}
+@keyframes shake{25%{transform:translate(6px,-5px)}75%{transform:translate(-6px,5px)}}
+footer{text-align:center;padding:10px 16px 60px;font-size:.85rem}
+</style></head><body>
+<div class="bg" id="bg"></div>
+<div class="run"><svg class="c" viewBox="0 0 100 70"><use href="#cat"/></svg><svg viewBox="0 0 100 70"><use href="#mouse"/></svg></div>
+<svg width="0" height="0" style="position:absolute"><defs>
+<g id="cat" stroke="#1b1b2f" stroke-width="3" stroke-linejoin="round"><path d="M12 60Q2 40 18 38" fill="none"/><ellipse cx="45" cy="42" rx="26" ry="18" fill="#5b7fc7"/><circle cx="72" cy="30" r="20" fill="#5b7fc7"/><path d="M56 16L58 -2 70 10ZM76 10L90 -2 92 18Z" fill="#5b7fc7"/><ellipse cx="82" cy="36" rx="12" ry="9" fill="#fff3c4"/><circle cx="66" cy="28" r="6" fill="#fff"/><circle cx="80" cy="27" r="6" fill="#fff"/><circle cx="68" cy="29" r="2.5" fill="#000"/><circle cx="82" cy="28" r="2.5" fill="#000"/><circle cx="90" cy="33" r="3.5" fill="#e63946"/><path d="M30 58v8M52 58v8" fill="none"/></g>
+<g id="mouse" stroke="#1b1b2f" stroke-width="3" stroke-linejoin="round"><path d="M10 56Q0 40 14 34" fill="none"/><ellipse cx="42" cy="46" rx="24" ry="14" fill="#b98558"/><circle cx="68" cy="38" r="14" fill="#b98558"/><circle cx="64" cy="22" r="9" fill="#f7b7a3"/><circle cx="78" cy="24" r="9" fill="#f7b7a3"/><circle cx="64" cy="36" r="4" fill="#fff"/><circle cx="74" cy="36" r="4" fill="#fff"/><circle cx="65" cy="37" r="1.7" fill="#000"/><circle cx="75" cy="37" r="1.7" fill="#000"/><circle cx="81" cy="42" r="3" fill="#e63946"/></g>
+<g id="cheese" stroke="#1b1b2f" stroke-width="3" stroke-linejoin="round"><path d="M5 50L50 15 95 50V68H5Z" fill="#ffc928"/><circle cx="35" cy="52" r="6" fill="#e0a500"/><circle cx="68" cy="58" r="8" fill="#e0a500"/><circle cx="55" cy="38" r="4" fill="#e0a500"/></g>
+</defs></svg>
+
+<header><div class="hero">
+<h1>JURNAL SINTA!</h1>
+<div class="sub">Katalog 21 jurnal nasional &amp; internasional — jangan sampai kamu dikejar jurnal predator 😼🐭</div>
+<svg width="190" viewBox="0 0 200 75"><use href="#cat"/><g transform="translate(95 0)"><use href="#mouse"/></g></svg>
+<div class="badge">👋 Halo! Saya <b>Rasya Almajid</b>, siswa PKL dari <b>Al-Muhtadin</b>. Saat ini magang di bawah bimbingan <b>Pak Riadi Marta Dinata, S.Ti., M.Kom.</b> (Kalab Komputer FSTT ISTN).<br>Sumber rujukan: <a href="https://sinta.kemdiktisaintek.go.id/journals/index/" target="_blank" rel="noopener" style="color:inherit">sinta.kemdiktisaintek.go.id</a></div>
+<div class="btns" id="f"></div>
+<input id="q" placeholder="🔎 Cari jurnal, penerbit, bidang…">
+<div class="btns"><button class="btn" id="boo">⚠️ JANGAN DIKLIK!</button></div>
+</div></header>
+<main><div class="grid" id="g"></div></main>
+<footer>Data diringkas dari informasi laman jurnal yang diberikan. Verifikasi ulang peringkat SINTA &amp; biaya langsung di situs resmi sebelum submit. · Karakter kucing &amp; tikus adalah ilustrasi orisinal bergaya kartun klasik.</footer>
+
+<div class="ov" id="ov"><div class="det" id="d"></div></div>
+<div class="scare" id="sc"><svg viewBox="-5 -8 105 80"><use href="#cat"/></svg><div>AWAS JURNAL PREDATOR!</div><p>Selalu cek akreditasi di SINTA sebelum membayar APC 😱 (ketuk untuk tutup)</p></div>
+
+<script>
+const J=[
+["Kebijakan: Jurnal Ilmu Administrasi",3,"Magister Ilmu Administrasi & Kebijakan Publik, Univ. Pasundan","Administrasi publik, tata kelola pemerintahan, otonomi daerah, birokrasi, pelayanan publik, digital governance","2x/tahun","Rp2.000.000","E-ISSN 2656-2820 · P-ISSN 1829-5762","https://journal.unpas.ac.id/index.php/kebijakan","Administrasi Publik"],
+["IJMSIT (Int. J. of Management Science & IT)",3,"Lembaga KITA Aceh","Manajemen + teknologi informasi, pemasaran, kewirausahaan, SDM. Double-blind review, DOI Crossref, waiver tersedia.","2x/tahun","Rp850.000 (fast-track Rp1.500.000)","E-ISSN 2774-5694 · P-ISSN 2776-7388","https://journal.lembagakita.com/ijmsit","Manajemen & TI"],
+["Jurnal Minfo Polgan (JMP)",3,"Politeknik Ganesha Medan","Manajemen informatika: SPK, GIS, ERP, keamanan sistem, web, data mining, mobile, multimedia. Double-blind review.","3x/tahun (Jan, Mei, Sep)","Rp1.000.000 (non-Indonesia $59,60)","e-ISSN 2797-3298 · p-ISSN 2089-9424","https://jurnal.polgan.ac.id/index.php/jmp","Informatika"],
+["Kitabah: Jurnal Pendidikan Sosial Humaniora",6,"Rahmat Islamiyah Foundation, Medan","Pendidikan, sosial, humaniora, ekonomi Islam, bisnis & perbankan syariah. SK 355/DST/D.D1/HM.01.01/2026.","3x/tahun (Jan, Mei, Sep)","Rp150.000 (setelah diterima)","e-ISSN 2985-5292","https://ejurnalilmiah.com/index.php/kitabah/index","Pendidikan & Sosial"],
+["SAKOLA: Journal of Sains Cooperative Learning and Law",0,"CV Rayyan Dwi Bharata","Sains, pendidikan, hukum, sosial-politik, ekonomi-bisnis-manajemen. Grade di laman tertulis “-”: peringkat SINTA belum dapat dipastikan.","2x/tahun (Apr, Okt)","Rp0 (waiver tersedia)","P-ISSN 3046-787X · E-ISSN 3046-7179","https://rayyanjurnal.com/index.php/sakola/index","Multidisiplin"],
+["ANOA: Jurnal Pengabdian Masyarakat Fakultas Teknik",6,"Fakultas Teknik, Univ. Muhammadiyah Kendari","Pengabdian masyarakat berbasis IPTEK: arsitektur, sipil, lingkungan, tambang, sistem & TI, kimia, metalurgi. Turnitin maks 30%.","2x/tahun (Jun, Des)","Rp399.000 (fast-track Rp699.000, mahasiswa Rp199.000)","P-ISSN 3024-8922 · E-ISSN 2985-4660","https://journal.umkendari.ac.id/anoa/about","Pengabdian"],
+["Konsienti: Community Services Journal",6,"Takaza Innovatix Labs Ltd.","Pengabdian, pemberdayaan masyarakat, kesehatan, pendidikan, lingkungan. SINTA 6 sampai 2027.","2x/tahun (Jan, Jul)","Rp300.000","E-ISSN 3025-1532","https://journal.takaza.id/index.php/konsienti","Pengabdian"],
+["AKUNBISNIS (Aktual Akuntansi Keuangan Bisnis Terapan)",0,"Politeknik Negeri Semarang","Akuntansi keuangan & manajemen, audit, sektor publik, perbankan, fintech. Double-blind. Peringkat SINTA tidak tertulis di materi (hanya tautan profil).","2x/tahun (Mei, Nov)","Rp400.000 (sudah termasuk DOI, Turnitin, layout)","P-ISSN 2622-6529 · E-ISSN 2655-1306","https://jurnal.polines.ac.id/index.php/akunbisnis","Akuntansi & Bisnis"],
+["Paulus Journal of Accounting (PJA)",0,"Prodi Akuntansi, UKI Paulus","Akuntansi, keuangan, pasar modal, nilai perusahaan, SIA. Terhubung ke SINTA, tetapi peringkat tidak tertulis di materi.","2x/tahun (Jun, Des)","Rp300.000 / USD 20 (waiver tersedia)","e-ISSN 2715-7474 · p-ISSN 2715-9892","https://ojs.ukipaulus.ac.id/index.php/pja","Akuntansi & Bisnis"],
+["Jurnal Hukum Das Sollen",6,"Fakultas Hukum, Univ. Islam Indragiri","Hukum perdata, pidana, internasional, administrasi, Islam, konstitusi, lingkungan, acara. Indeks: Garuda, Google Scholar, Crossref.","2x/tahun (Jun, Des)","Rp550.000","e-ISSN 2598-7321 · p-ISSN 2580-2003","https://ejournal.unisi.ac.id/index.php/das-sollen/index","Hukum"],
+["Collaborative: Jurnal Pengabdian Masyarakat",6,"CV. Jendela Gagasan","Pengabdian multidisiplin (termasuk komputer & teknik) dengan metode PAR, ABCD, CBR, service learning.","2x/tahun (Jun, Des)","Rp300.000 (fast-track Rp500.000)","E-ISSN 3031-8084","https://ejournal.arshmedia.org/index.php/collaborative","Pengabdian"],
+["Warna: Jurnal Pendidikan Anak Usia Dini",0,"Univ. Nahdlatul Ulama Al Ghazali Cilacap","Fokus PAUD & parenting dalam perspektif Muslim. Status SINTA tidak disebutkan di materi.","2x/tahun (Jun, Des)","Rp300.000","e-ISSN 2615-1642 · p-ISSN 2550-0058","https://jurnal.unugha.ac.id/index.php/warna","Pendidikan"],
+["IFI-JEB (Indo-Fintech Intellectuals)",5,"Lembaga Intelektual Muda (LIM) Maluku","Ekonomi, bisnis, perbankan, manajemen, akuntansi, pemasaran, SDM. Double-blind. Bukan Scopus.","Metadata situs tidak konsisten (2x atau 6x/tahun)","Rp250.000","P-ISSN 2808-2443 · E-ISSN 2808-2222","https://ejournal.indo-intellectual.id/index.php/ifi","Ekonomi & Bisnis"],
+["IJML (Int. Journal Multidisciplinary Science)",5,"Asosiasi Dosen Muda Indonesia (ADMI)","Multidisiplin: humaniora, pendidikan, sosial, hukum, komputer. SINTA 5 sampai 2027.","3x/tahun (Feb, Jun, Okt)","Anggota ADMI gratis; non-anggota Rp750.000 / US$35","P-ISSN 2963-8119 · E-ISSN 2963-7821","https://journal.admi.or.id/index.php/IJML","Multidisiplin"],
+["Jurnal Pengabdian Manajemen (JPM)",5,"Univ. Muhammadiyah Gresik","Pengabdian bidang manajemen: SDM, pemasaran, keuangan, operasional, supply chain, strategik, UMKM. Blind peer-review.","2x/tahun (Feb, Agu)","Rp500.000","P-ISSN 2808-2400 · E-ISSN 2808-0076","https://journal.umg.ac.id/index.php/jpmanajemen","Pengabdian"],
+["Iqtishaduna (Jurnal Ilmiah Mahasiswa HES)",5,"UIN Alauddin Makassar","Hukum ekonomi syariah, hukum ekonomi, pidana & perdata ekonomi. SINTA 5 sampai 2029. Turnitin >40% dikembalikan.","4x/tahun (Jan, Apr, Jul, Okt)","Rp350.000","E-ISSN 2714-6197","https://journal.uin-alauddin.ac.id/index.php/iqtishaduna","Hukum"],
+["Jurnal INOBIS (Inovasi Bisnis & Manajemen Indonesia)",5,"Forum Inovasi Bisnis dan Manajemen Indonesia","Pemasaran, keuangan, SDM, supply chain, SI, kewirausahaan & UMKM. Bahasa Indonesia/Inggris.","4x/tahun","Rp500.000 (dibayar setelah diterima)","eISSN 2614-0462","https://inobis.org/ojs/index.php/jurnal-inobis/about","Manajemen & TI"],
+["JPEMA (Point Equilibrium Manajemen & Akuntansi)",5,"Fakultas Ekonomi, Univ. Sumatera Barat","Penelitian empiris & tinjauan kritis manajemen dan akuntansi. Indeks termasuk DOAJ. Cek Turnitin & reference manager.","2x/tahun (Mar, Okt)","Rp350.000 (submit gratis)","Online ISSN 2686-1135","https://ojs.unisbar.ac.id/index.php/jpema/about","Akuntansi & Bisnis"],
+["Ngarsa: Journal of Dedication Based on Local Wisdom",0,"LP2M UIN KHAS Jember","Pengabdian berbasis kearifan lokal: sosial-budaya, hukum Islam, pendidikan, UMKM. Peringkat SINTA tidak tertulis.","2x/tahun (Jan–Jun, Jul–Des)","Rp250.000 (sejak Vol. 6 No. 1, 2026)","e-ISSN 2775-782X · p-ISSN 2775-9776","https://ngarsa.uinkhas.ac.id/ngarsa/about","Pengabdian"],
+["OAIJSS (Open Access Indonesia J. of Social Sciences)",0,"HM Publisher & CMHC Research Center","Ilmu sosial-politik, governance, kebijakan publik, masyarakat digital. Double-blind min. 3 reviewer. Peringkat SINTA tidak tertulis.","6x/tahun (bimonthly)","IDR 1.000.000 / USD 100","e-ISSN 2722-4252","https://journalsocialsciences.com/index.php/oaijss","Sosial & Politik"],
+["AMAR (Advances in Managerial Auditing Research)",5,"Yayasan Pendidikan Bukhari Dwi Muslim","Auditing, akuntansi, perpajakan, governance, fraud, ESG. Double-anonymous. “Scopus citedness” ≠ terindeks Scopus.","3 issue/volume; continuous publication sejak 1 Sep 2026","Naskah diterima setelah 1 Okt 2026: processing Rp150.000 + publikasi Rp350.000","E-ISSN 2985-7546","https://advancesinresearch.id/index.php/AMAR","Akuntansi & Bisnis"]
+];
+const $=id=>document.getElementById(id);
+const em={"Administrasi Publik":"🏛️","Manajemen & TI":"💻","Informatika":"🖥️","Pendidikan & Sosial":"📚","Multidisiplin":"🌐","Pengabdian":"🤝","Akuntansi & Bisnis":"💰","Hukum":"⚖️","Pendidikan":"🎓","Ekonomi & Bisnis":"📈","Sosial & Politik":"🗳️"};
+let flt="all";
+const lab=s=>s?("S"+s):"S?";
+function render(){const t=$("q").value.toLowerCase();
+$("g").innerHTML=J.map((j,i)=>[j,i]).filter(([j])=>(flt=="all"||j[1]==flt)&&(j.join(" ").toLowerCase().includes(t))).map(([j,i],k)=>`<div class="card" style="animation-delay:${k*40}ms" onclick="op(${i})"><div class="s s${j[1]}">SINTA ${lab(j[1])}</div><h3>${em[j[8]]||"📖"} ${j[0]}</h3><p>${j[2]}</p><p>💸 ${j[5]}</p><span class="tag">${j[8]}</span><span class="tag">${j[4].split(" (")[0]}</span></div>`).join("")||"<p>Tidak ada jurnal ditemukan 🙀</p>";}
+$("f").innerHTML=[["all","Semua"],[3,"SINTA 3"],[5,"SINTA 5"],[6,"SINTA 6"],[0,"Belum Jelas"]].map(([v,l])=>`<button class="btn ${v=="all"?"on":""}" data-v="${v}">${l}</button>`).join("");
+$("f").onclick=e=>{const b=e.target.closest("button");if(!b)return;flt=b.dataset.v=="all"?"all":+b.dataset.v;[...$("f").children].forEach(x=>x.classList.toggle("on",x==b));render()};
+$("q").oninput=render;
+function op(i){const j=J[i];$("d").innerHTML=`<svg width="120" viewBox="-5 -8 105 80" style="float:right"><use href="#cheese"/></svg><h2>${j[0]}</h2><span class="tag">SINTA ${lab(j[1])}${j[1]?"":" (tidak tertulis)"}</span><span class="tag">${j[8]}</span><table><tr><td>Penerbit</td><td>${j[2]}</td></tr><tr><td>Fokus & scope</td><td>${j[3]}</td></tr><tr><td>Frekuensi</td><td>${j[4]}</td></tr><tr><td>Biaya publikasi</td><td>${j[5]}</td></tr><tr><td>ISSN</td><td>${j[6]}</td></tr><tr><td>Laman jurnal</td><td><a href="${j[7]}" target="_blank" rel="noopener">${j[7].replace("https://","")}</a></td></tr></table><button class="btn" onclick="cl()">⬅ KEMBALI</button>`;$("ov").classList.add("show")}
+function cl(){$("ov").classList.remove("show")}
+$("ov").onclick=e=>{if(e.target.id=="ov")cl()};
+$("boo").onclick=()=>$("sc").classList.add("show");$("sc").onclick=()=>$("sc").classList.remove("show");
+const bg=$("bg");["🧀","🐾","📖","🧀","⭐","🐭","🐾"].forEach((c,i)=>{for(let k=0;k<3;k++){const s=document.createElement("span");s.textContent=c;s.style.left=Math.random()*95+"%";s.style.animationDuration=12+Math.random()*14+"s";s.style.animationDelay=-Math.random()*20+"s";s.style.fontSize=1.2+Math.random()*1.8+"rem";bg.appendChild(s)}});
+render();
+</script></body></html>
